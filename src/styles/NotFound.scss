@@ -1,0 +1,17 @@
+@use "./vars";
+
+.container-404 {
+  height: 30%;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  background-color: var(--text-input-field);
+}
+
+.not-found-title {
+  color: red;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--very-light-pink);
+}
