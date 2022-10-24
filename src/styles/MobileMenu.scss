@@ -2,11 +2,12 @@
 
 .mobile-menu {
   left: 0;
-  width: 300px;
+  width: 100%;
   background-color: var(--white);
   position: absolute;
   padding: 24px;
   top: 61px;
+  height: 100vh;
   margin: 0;
 }
 

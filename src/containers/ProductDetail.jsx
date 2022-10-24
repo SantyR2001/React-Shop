@@ -2,10 +2,8 @@ import React from "react";
 import ProductInfo from "../components/ProductInfo";
 import imgClose from "@icons/icon_close.png";
 import "@styles/ProductDetail.scss";
-import useToggleShow from "../hooks/useToggleShow";
 
-function ProductDetail({ product }) {
-  const { toggleShow } = useToggleShow();
+function ProductDetail({ product, toggleShow }) {
   return (
     <aside className="product-detail inactive">
       <div onClick={() => toggleShow()} className="product-detail-close">

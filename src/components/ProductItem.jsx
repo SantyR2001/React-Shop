@@ -43,7 +43,9 @@ function ProductItem({ product }) {
           </figure>
         </div>
       </div>
-      {toggleState.showProductDetail && <ProductDetail product={product} />}
+      {toggleState.showProductDetail && (
+        <ProductDetail toggleShow={toggleShow} product={product} />
+      )}
     </div>
   );
 }

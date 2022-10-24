@@ -65,7 +65,7 @@ function Header() {
       </div>
       {toggleState.showDesktopMenu && <Menu />}
       {toggleState.showMobileMenu && <MobileMenu />}
-      {toggleState.showCart && <MyOrder />}
+      {toggleState.showCart && <MyOrder toggleShow={toggleShow} />}
     </nav>
   );
 }

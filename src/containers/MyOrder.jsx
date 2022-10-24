@@ -3,11 +3,9 @@ import AppContext from "../context/AppContext";
 import OrderItem from "../components/OrderItem";
 import "@styles/MyOrder.scss";
 import imgArrow from "@icons/flechita.svg";
-import useToggleShow from "../hooks/useToggleShow";
 
-const MyOrder = () => {
+const MyOrder = ({ toggleShow }) => {
   const { state } = useContext(AppContext);
-  const { toggleShow } = useToggleShow();
 
   const getDate = () => {
     const time = Date.now();
@@ -25,7 +23,7 @@ const MyOrder = () => {
   return (
     <aside className="MyOrder">
       <div className="title-container">
-        <img src={imgArrow} alt="arrow" />
+        <img onClick={toggleShow} src={imgArrow} alt="arrow" />
         <p className="title">My order</p>
       </div>
       <div className="my-order-content">
