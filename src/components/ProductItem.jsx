@@ -1,21 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import AppContext from "../context/AppContext";
+import btnAdd from "@icons/bt_add_to_cart.svg";
+import ProductDetail from "../containers/ProductDetail";
+import defaultImage from "../assets/images/imagen-no-disponible.jpg";
+import useToggleShow from "../hooks/useToggleShow";
+import btnAdded from "@icons/bt_added_to_cart.svg";
 
-function ProductItem(props) {
+function ProductItem({ product }) {
+  const { addToCart, removeFromCart } = useContext(AppContext);
+  const { toggleShow, toggleState } = useToggleShow();
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleClick = (item) => {
+    if (isAdded === false) {
+      addToCart(item);
+      setIsAdded(true);
+    } else {
+      removeFromCart(item);
+      setIsAdded(false);
+    }
+  };
+
   return (
-    <div className="product-card">
-      <img
-        src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt
-      />
-      <div className="product-card-info">
-        <div>
-          <p>$120,00</p>
-          <p>Bike</p>
+    <div>
+      <div className="product-card">
+        <img
+          onClick={() => toggleShow("showProductDetail")}
+          src={product.images[0] ? product.images[0] : defaultImage}
+          alt="product-image"
+        />
+        <div className="product-card-info">
+          <div>
+            <p>${product.price}</p>
+            <p>{product.title}</p>
+          </div>
+          <figure onClick={() => handleClick(product)}>
+            {!isAdded === true ? (
+              <img src={btnAdd} alt="AddToCart" />
+            ) : (
+              <img src={btnAdded} alt="AddToCart" />
+            )}
+          </figure>
         </div>
-        <figure>
-          <img src="./icons/bt_add_to_cart.svg" alt="AddToCart" />
-        </figure>
       </div>
+      {toggleState.showProductDetail && <ProductDetail product={product} />}
     </div>
   );
 }

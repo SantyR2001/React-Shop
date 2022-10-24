@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../components/Buttons";
 import "../styles/EmailSent.scss";
+import emailIcon from "@icons/email.svg";
 
 function EmailSent(props) {
   return (
@@ -12,7 +13,7 @@ function EmailSent(props) {
           Please check your inbox for instructions and how to reset the password
         </p>
         <div className="email-image">
-          <img src="../iconos/email.svg" alt="email" />
+          <img src={emailIcon} alt="email" />
         </div>
         <Button value="Log in" styleName="primary-button login-button" />
         <p className="resend">

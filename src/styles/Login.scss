@@ -54,6 +54,19 @@
   margin-bottom: 22px;
 }
 
+.primary-button {
+  background-color: var(--hospital-green);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+  font-size: var(--md);
+  font-weight: bold;
+  height: 46px;
+  transition: transform 0.2s;
+}
+
 .login-button {
   margin-top: 14px;
   margin-bottom: 30px;
@@ -61,7 +74,7 @@
 
 @media (max-width: 640px) {
   .logo {
-    display: block;
+    display: block !important;
   }
   .secondary-button {
     bottom: 16px;

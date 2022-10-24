@@ -1,17 +1,21 @@
 import React from "react";
+import Button from "./Buttons";
+import imgAdd from "@icons/bt_add_to_cart.svg";
+import "@styles/ProductDetail.scss";
 
-function ProductInfo(props) {
+function ProductInfo({ product }) {
   return (
     <div>
-      <img id="productImg" src="./logos/pexels-photo-276517.jpeg" alt="bike" />
+      <img src={product.images[1]} className="product-detail-img" alt="bike" />
       <div className="product-info">
-        <p id="productPrice"></p>
-        <p id="productName"></p>
-        <p id="productDesc"></p>
-        <button className="primary-button add-to-cart-btn">
-          <img src="./iconos/bt_add_to_cart.svg" alt="Add to cart" />
-          Add to cart
-        </button>
+        <p>{product.price}</p>
+        <p>{product.title}</p>
+        <p>{product.description}</p>
+        <Button
+          value={`Add to cart`}
+          styleName="primary-button add-to-cart-btn"
+          children={<img src={imgAdd} alt="Add to cart" />}
+        />
       </div>
     </div>
   );

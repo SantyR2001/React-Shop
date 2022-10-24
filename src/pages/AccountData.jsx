@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Buttons";
 import "../styles/AccountData.scss";
 
@@ -26,7 +27,9 @@ function AccountData(props) {
             </label>
             <p className="value"> ******** </p>
           </div>
-          <Button value="Edit" styleName="secondary-button login-button" />
+          <Link to="/edit-account">
+            <Button value="Edit" styleName="secondary-button login-button" />
+          </Link>
         </form>
       </div>
     </div>

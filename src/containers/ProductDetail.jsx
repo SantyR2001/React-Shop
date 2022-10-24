@@ -1,17 +1,17 @@
 import React from "react";
 import ProductInfo from "../components/ProductInfo";
+import imgClose from "@icons/icon_close.png";
+import "@styles/ProductDetail.scss";
+import useToggleShow from "../hooks/useToggleShow";
 
-function ProductDetail(props) {
+function ProductDetail({ product }) {
+  const { toggleShow } = useToggleShow();
   return (
-    <aside id="productDetail" className="product-detail inactive">
-      <div className="product-detail-close">
-        <img
-          className="close-product-detail-icon"
-          src="./iconos/icon_close.png"
-          alt="close"
-        />
+    <aside className="product-detail inactive">
+      <div onClick={() => toggleShow()} className="product-detail-close">
+        <img className="close-product-detail-icon" src={imgClose} alt="close" />
       </div>
-      <ProductInfo />
+      <ProductInfo product={product} />
     </aside>
   );
 }

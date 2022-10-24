@@ -1,10 +1,16 @@
 import React from "react";
 import "../styles/Buttons.scss";
 
-function Button({ value, type = "", styleName = "primary-button" }) {
+function Button({
+  value,
+  type = "",
+  styleName = "primary-button",
+  children = null,
+  onClick = null,
+}) {
   return (
-    <button type={type} className={styleName}>
-      {" "}
+    <button onClick={() => onClick} type={type} className={styleName}>
+      {children}
       {value}{" "}
     </button>
   );
